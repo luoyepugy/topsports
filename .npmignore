@@ -1,0 +1,13 @@
+dist/*.map
+node_modules
+src
+public
+.babelrc
+.gitignore
+index.html
+package.lock.json
+vue.config.js
+tsconfig.json
+postcss.config.js
+babel.config.js
+

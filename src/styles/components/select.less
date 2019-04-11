@@ -1,0 +1,19 @@
+.z-select-wrap {
+    padding: 10px;
+    display: inline-block;
+
+    .ivu-dropdown-item {
+        &:hover {
+            color: @primary-color;
+        }
+    }
+
+    .ivu-dropdown .ivu-icon-ios-arrow-down {
+        transition: all 0.2s ease-in-out;
+        margin: 0 5px;
+    }
+
+    .ivu-dropdown-visible .ivu-icon-ios-arrow-down {
+        transform: rotate(180deg);
+    }
+}
