@@ -1,0 +1,101 @@
+@table-prefix-cls: ~"@{css-prefix}table";
+@serach-prefix-cls: ~"@{css-prefix}table-search";
+
+.@{serach-prefix-cls} {
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+.@{table-prefix-cls} {
+    &-wrapper {
+        &:extend(.z-block);
+        &:extend(.z-content);
+    }
+
+    &-with-fitler {
+        .filter {
+            display: inline-flex;
+            padding: 14px;
+            margin-bottom: 1px;
+            width: 100%;
+            position: relative;
+
+            &>div {
+                margin-right: 20px;
+                flex: 0 1 auto;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            &-button-group {
+                flex-grow: 1;
+                text-align: right;
+            }
+
+            &-search {
+                position: relative;
+                top: 5px;
+            }
+
+            .ivu-input-wrapper {
+                width: 240px;
+            }
+
+            .ivu-dropdown {
+                margin-right: 25px;
+            }
+
+            .ivu-date-picker {
+                min-width: 250px;
+            }
+        }
+    }
+
+    &-with-toolbar {
+        .toolbar {
+            .line-height(50);
+            padding: 0 10px;
+
+            &-label {
+                padding-right: 15px;
+                border-right: 1px solid @border-color;
+            }
+
+            &-number {
+                margin: 5px;
+                color: @primary-color;
+            }
+
+            &-icons {
+                display: inline-flex;
+                margin-left: 15px;
+
+                &>.button {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.@{table-prefix-cls}{
+    margin: 0 14px 14px;
+    position: relative;
+
+    .icon-filter-column {
+        position: absolute;
+        right: 14px;
+        top: 10px;
+        z-index: 2;
+        background: #f8f8f9;
+    }
+
+    .icon-ellipsis {
+        width: 32px;
+        position: relative;
+        right: 10px;
+    }
+}

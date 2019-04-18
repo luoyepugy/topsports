@@ -50,16 +50,16 @@
     </div>
 </template>
 <script lang="ts">
-import { Component, Emit, Prop, Vue, Watch } from "vue-property-decorator";
-import Emitter from "@/mixins/emitter";
+import { Component, Emit, Prop, Vue, Watch, Mixins } from "vue-property-decorator";
+import EmitterMixin from "@/mixins/emitter";
 import { oneOf, findComponentUpward } from "@/utils/assist";
 
 const prefixCls = "ivu-input";
 const iconPrefixCls = "ivu-icon";
 
 @Component({})
-export default class ZInputNumber extends Vue {
-    name: string = "ZInputNumber";
+export default class InputNumber extends Mixins(EmitterMixin) {
+    name: string = "InputNumber";
 
     @Prop() precision: number;
     @Prop({ default: -Infinity }) min: number;
@@ -153,7 +153,7 @@ export default class ZInputNumber extends Vue {
             this.currentValue = val;
             this.$emit("on-input", val);
             this.$emit("on-change", val);
-            // this.dispatch('FormItem', 'on-form-change', val);
+            this.dispatch('FormItem', 'on-form-change', val);
         });
     }
     handleEnter(event: Event) {
@@ -184,7 +184,7 @@ export default class ZInputNumber extends Vue {
                 "Search"
             ])
         ) {
-            // this.dispatch('FormItem', 'on-form-blur', this.currentValue);
+            this.dispatch('FormItem', 'on-form-blur', this.currentValue);
         }
     }
     handleInput(event: Event) {

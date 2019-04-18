@@ -1,6 +1,4 @@
 dist/*.map
-node_modules
-src
 public
 .babelrc
 .gitignore

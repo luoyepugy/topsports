@@ -1,0 +1,31 @@
+/*
+ *******************************************
+ * 块状元素文本垂直居中
+ * demo: @include line-height()
+ *******************************************
+ */
+
+.line-height(@height: 50) {
+    height: @height;
+    line-height: @height;
+}
+
+
+/*
+ *******************************************
+ * 块状元素文本水平垂直居中
+ * demo: @include center-text()
+ *******************************************
+ */
+
+.center-text(@height: 50, @align: center, @hasChild: false) {
+    text-align: @align;
+    height: @height;
+    line-height: @height;
+
+    .truth(@hasChild) {
+        * {
+            vertical-align: middle;
+        }
+    }
+}

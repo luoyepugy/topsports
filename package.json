@@ -1,9 +1,10 @@
 {
   "name": "topsports",
-  "version": "0.1.16",
+  "version": "0.1.21",
   "private": false,
   "main": "dist/topsports.js",
   "typings": "types/index.d.ts",
+  "license": "MIT",
   "keywords": [
     "topsports",
     "iview",
@@ -11,7 +12,8 @@
   ],
   "files": [
     "dist",
-    "types"
+    "types",
+    "styles"
   ],
   "scripts": {
     "serve": "cross-env NODE_ENV=dev vue-cli-service serve",
@@ -40,11 +42,11 @@
     "cross-env": "^5.2.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
-    "iview": "^3.3.3",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "typescript": "^3.2.1",
     "vue": "^2.5.17",
+    "iview": "^3.3.0",
     "vue-template-compiler": "^2.5.17"
   },
   "engines": {

@@ -3,32 +3,6 @@ const webpack = require("webpack");
 const BabiliWebpackPlugin = require("babili-webpack-plugin");
 const resolve = dir => path.join(__dirname, dir);
 
-const configServer = {
-  dev: {
-    env: {
-      NODE_ENV: '"development"'
-    },
-    api: {
-      dev: '"//mpp.belle.net.cn:8080/mpp/"',
-      test: '"//tsc-test.belle.net.cn/mpp/"',
-      train: '"//tsc-train.belle.net.cn/mpp/"',
-      pro: '"//tsc.belle.net.cn/mpp/"',
-    }
-  },
-  build: {
-    env: {
-      NODE_ENV: '"production"'
-    },
-    api: {
-      dev: '"//tsc.belle.net.cn/mpp/"',
-      test: '"//tsc-test.belle.net.cn/mpp/"',
-      train: '"//tsc-train.belle.net.cn/mpp/"',
-      pro: '"//tsc.belle.net.cn/mpp/"',
-    }
-  }
-};
-const switchApi = process.env.NODE_API || "dev";
-const switchEnv = process.env.NODE_ENV === 'production' ? 'build' : 'dev'
 
 module.exports = {
   // 基本路径
@@ -53,7 +27,7 @@ module.exports = {
       template: 'dist/index.html',
       // 编译后在dist目录的输出文件名，可选项，省略时默认与模块名一致
       filename: 'index.html'
-    }
+    },
     // main: {
     //   // 应用入口配置，相当于单页面应用的main.js，必需项
     //   entry: 'src/main.ts',
@@ -84,21 +58,21 @@ module.exports = {
 
 
     config.externals({
-      'Vue': 'vue',
       'Vuex': 'vuex',
       'VueRouter': 'vue-router',
-      // 'iView': 'iview',
-      // 'Vue': {
-      //   root: 'Vue',
-      //   commonjs: 'vue',
-      //   commonjs2: 'vue',
-      //   amd: 'vue'
-      // }
+      'iView': 'iview',
+      'Vue': {
+        root: 'Vue',
+        commonjs: 'vue',
+        commonjs2: 'vue',
+        amd: 'vue'
+      }
     })
 
     config.resolve.alias
       .set('@', resolve('src'))
       .set('@c', resolve('src/components'))
+      .set('@s', resolve('styles'))
     return {
       ...config,
       extensions: ['.js', '.vue', '.ts']

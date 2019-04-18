@@ -283,3 +283,15 @@ export function setMatchMedia () {
 }
 
 export const sharpMatcherRegx = /#([^#]+)$/;
+
+// 字段映射
+export function fieldMapping(target, array) {
+    let result = [],
+      strArr = typeOf(target) === 'array' ? target : [].concat(+target);
+    for (let i of array) {
+      if (~strArr.indexOf(i.Id)) {
+        result.push(i.name);
+      }
+    }
+    return result.join(",");
+}
